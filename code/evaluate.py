@@ -2,6 +2,8 @@ from sklearn.metrics import precision_recall_curve
 import sys
 import sklearn.metrics as metrics
 import conf
+import mlflow
+import dagshub
 
 try: import cPickle as pickle   # python2
 except: import pickle           # python3
@@ -28,4 +30,8 @@ auc = metrics.auc(recall, precision)
 #print('AUC={}'.format(metrics.auc(recall, precision)))
 with open(metrics_file, 'w') as fd:
     fd.write('AUC: {:4f}\n'.format(auc))
+
+mlflow.start_run()
+mlflow.log_metric("AUC", auc)
+mlflow.end_run()
 

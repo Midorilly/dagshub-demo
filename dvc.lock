@@ -29,7 +29,7 @@ stages:
       md5: 2910bc798f44dc244424712c8f88e879
       size: 25679203
   split:
-    cmd: python code/split_train_test.py 0.2 1234
+    cmd: python code/split_train_test.py 0.3 1234
     deps:
     - path: code/split_train_test.py
       hash: md5
@@ -42,12 +42,12 @@ stages:
     outs:
     - path: data/Posts-test.tsv
       hash: md5
-      md5: b273ad4146169f95aa5d7a60221c7921
-      size: 5012174
+      md5: ff4d33d630ec6a94677ee960f31f48d6
+      size: 7646863
     - path: data/Posts-train.tsv
       hash: md5
-      md5: dfcd992c9c398201515eb879b7283101
-      size: 20898709
+      md5: db1644b918b42bb9c00fef0cb6730bf2
+      size: 18264020
   featurize:
     cmd: python code/featurization.py
     deps:
